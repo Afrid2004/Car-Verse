@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root{
+  --primary-color: #405FF2;
+  --hover-color: #364fd0;
+  --dark-bg: #050B20;
+  --secondary-color: #23283b;
+}
+
+.mobile-menu ul li{
+ @apply hover:bg-gray-100 p-2 rounded-md cursor-pointer;
+}
+body{
+  @apply overflow-hidden;
+}
+.container{
+  @apply w-full max-w-[400px] sm:max-w-[600px] md:max-w-[750px] lg:max-w-[1000px] xl:max-w-[1200px] 2xl:max-w-[1300px] mx-auto;
+}
+.active{
+  @apply text-[var(--primary-color)];
+}
+.bg-primary{
+  @apply bg-[var(--primary-color)];
+}
+.bg-dark{
+  @apply bg-[var(--dark-bg)];
+}
+.bg-secondary{
+  @apply bg-[var(--secondary-color)];
+}
+.btn-primary{
+  @apply cursor-pointer transition-all duration-100 bg-[var(--primary-color)] hover:bg-[var(--hover-color)];
+}
