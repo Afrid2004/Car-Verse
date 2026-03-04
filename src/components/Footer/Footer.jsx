@@ -149,8 +149,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row justify-between items-center text-[15px]">
               <div className="footer-left opacity-75 mb-3 md:mb-0">
                 <p>
-                  © {year}{" "}
-                  <a href="https://carverce.vercel.app">carverce.vercel.app</a>.
+                  © {year} <a href="https://carverce.vercel.app">carverce</a>.
                   All rights reserved.
                 </p>
               </div>
