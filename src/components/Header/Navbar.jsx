@@ -1,9 +1,10 @@
 import { LogIn, Menu, User, X } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
+  //const [isScrooling, setScrooling] = useState(false);
   const menuLinks = (
     <>
       <NavLink to="/" className="text-[17px] hover:text-[#405FF2]">
@@ -23,26 +24,29 @@ const Navbar = () => {
   const logInSignUpBtn = (
     <>
       <a href="#">
-        <button className="flex items-center gap-1">
+        <button className="flex items-center gap-1 btn-primary px-4 py-2 rounded-4xl">
           <User /> Log In
-        </button>
-      </a>
-      <a href="#">
-        <button className="flex items-center gap-1">
-          <LogIn /> Sign Up
         </button>
       </a>
     </>
   );
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     window.scrollY > 100 ? setScrooling(true) : setScrooling(false);
+  //   });
+  // }, []);
   return (
-    <nav>
-      <div className="container">
+    <nav
+      className={`fixed top-0  w-full text-black transition-all duration-300 backdrop-blur-[50px] bg-white/70 z-100`}
+    >
+      <div className="container py-4">
         <div className="flex justify-between items-center relative">
           <div className="left-logo">
             <Link to="/">
               <img
                 src="images/logo-black.png"
-                className="max-w-[150px]"
+                className="max-w-37.5"
                 alt="logo"
               />
             </Link>
@@ -64,7 +68,7 @@ const Navbar = () => {
             </div>
           </div>
           <div
-            className={`mobile-menu md:hidden absolute transition-all duration-300 ease-in-out origin-top-right ${menu ? "scale-100 opacity-100" : "scale-0 opacity-0"} w-full top-[50px] border border-gray-200 rounded-md p-4 bg-white`}
+            className={`mobile-menu md:hidden absolute transition-all duration-300 ease-in-out origin-top-right ${menu ? "scale-100 opacity-100" : "scale-0 opacity-0"} w-full top-[50px] border border-gray-200 rounded-md p-4 bg-white text-black`}
           >
             <ul className="flex flex-col gap-4 activeLink">{menuLinks}</ul>
             <div className="flex flex-col gap-4 mt-3">{logInSignUpBtn}</div>

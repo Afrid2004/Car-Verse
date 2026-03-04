@@ -75,3 +75,15 @@ export const footerMenu = [
     menuPath: "/audi",
   },
 ];
+
+export const heroBannerData = [
+  {
+    img: "images/hero-bg-1.jpg",
+  },
+  {
+    img: "images/hero-bg-2.jpg",
+  },
+  {
+    img: "images/hero-bg-3.jpg",
+  },
+];

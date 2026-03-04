@@ -19,7 +19,7 @@ const Footer = () => {
   return (
     <footer className="bg-dark text-white">
       <div className="footer-container">
-        <div className="footer-topper h-12.5 bg-white rounded-br-4xl rounded-bl-4xl"></div>
+        <div className="h-[40px] w-[95%] mx-auto footer-topper h-12.5 bg-white rounded-br-4xl rounded-bl-4xl"></div>
         <div className="footer-second border-b border-b-[#23283b] py-8 md:py-12">
           <div className="container">
             <div className="footer-second-content flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -56,17 +56,19 @@ const Footer = () => {
         </div>
         <div className="footer-third border-b border-b-[#23283b] py-8 md:py-12">
           <div className="container">
-            <div className="footer-menu-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0">
+            <div className="footer-menu-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 ">
               <div className="div-1">
-                <div className="menu-title">
-                  <h4 className="font-medium text-[20px] mb-6">Company</h4>
+                <div>
+                  <h4 className="font-medium text-[20px] mb-6 text-white">
+                    Company
+                  </h4>
                 </div>
                 <div className="menuOne flex flex-col gap-2">
                   {menu.slice(0, 6)}
                 </div>
               </div>
               <div className="div-2">
-                <div className="menu-title">
+                <div>
                   <h4 className="font-medium text-[20px] mb-6">Quick Links</h4>
                 </div>
                 <div className="menuOne flex flex-col gap-2">
@@ -74,15 +76,15 @@ const Footer = () => {
                 </div>
               </div>
               <div className="div-3">
-                <div className="menu-title">
+                <div>
                   <h4 className="font-medium text-[20px] mb-6">Our brands</h4>
                 </div>
                 <div className="menuOne flex flex-col gap-2">
                   {menu.slice(10, 18)}
                 </div>
               </div>
-              <div className="div-3">
-                <div className="menu-title">
+              <div className="div-4">
+                <div>
                   <h4 className="font-medium text-[20px] mb-6">
                     Our Mobile App
                   </h4>
@@ -90,7 +92,7 @@ const Footer = () => {
                 <div>
                   <div className="app-logo mb-6">
                     <a className="playstore mb-3 block" href="#">
-                      <div className="bg-[#161c30] flex gap-5 items-center w-fit py-4 px-8 rounded-2xl">
+                      <div className="bg-[#161c30] flex gap-5 items-center justify-center py-4 px-8 rounded-2xl">
                         <img
                           src="images/playstore.png"
                           className="w-5"
@@ -105,7 +107,7 @@ const Footer = () => {
                       </div>
                     </a>
                     <a className="appstore" href="#">
-                      <div className="bg-[#161c30] flex gap-5 items-center w-fit py-4 px-8 rounded-2xl">
+                      <div className="bg-[#161c30] flex gap-5 items-center justify-center py-4 px-8 rounded-2xl">
                         <img
                           src="images/appstore.png"
                           className="w-5"
