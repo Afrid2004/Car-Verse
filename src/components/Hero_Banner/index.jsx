@@ -56,7 +56,7 @@ const HeroBanner = () => {
                 <div className="grow">
                   <select
                     defaultValue="Pick a color"
-                    className="select text-black border-0 outline-0 rounded-full cursor-pointer w-full bg-white"
+                    className="select border-0 outline-0 rounded-full cursor-pointer w-full bg-white"
                   >
                     <option disabled={true}>Select Model</option>
                     <option>Toyota Corolla</option>
@@ -68,7 +68,7 @@ const HeroBanner = () => {
                 <div className="grow">
                   <select
                     defaultValue="Pick a color"
-                    className="select text-black border-0 outline-0 rounded-full cursor-pointer w-full bg-white"
+                    className="select border-0 outline-0 rounded-full cursor-pointer w-full bg-white"
                   >
                     <option disabled={true}>Select Color</option>
                     <option>Black</option>
