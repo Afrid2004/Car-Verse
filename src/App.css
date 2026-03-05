@@ -14,7 +14,7 @@
  @apply hover:bg-gray-100 p-2 rounded-md cursor-pointer;
 }
 body{
-  @apply overflow-x-hidden;
+  @apply overflow-x-hidden bg-white;
   font-family: "Roboto", sans-serif;
 }
 .container{
