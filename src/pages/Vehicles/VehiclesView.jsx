@@ -2,10 +2,11 @@ import { ExternalLink, Satellite } from "lucide-react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "./VehiclesSlice";
+import Loading from "../../components/Loading/Loading";
 
 const VehiclesView = () => {
   const Dispatch = useDispatch();
-  const vehicles = useSelector((state) => state.VehiclesReducer.vehicles);
+  const { vehicles, isLoading } = useSelector((state) => state.VehiclesReducer);
   console.log(vehicles);
 
   useEffect(() => {
@@ -19,9 +20,12 @@ const VehiclesView = () => {
           <h4 className="text-[35px] font-bold mb-5">Explore All Vehicles</h4>
           <div className="vehicles-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {vehicles &&
-              vehicles.map((car) => {
+              vehicles.map((car, index) => {
                 return (
-                  <div className=" overflow-hidden rounded-2xl shadow">
+                  <div
+                    key={index}
+                    className=" overflow-hidden rounded-2xl shadow"
+                  >
                     <div className="product-img overflow-hidden">
                       <img
                         src={car.image}
@@ -69,6 +73,11 @@ const VehiclesView = () => {
                     </div>
                   </div>
                 );
+              })}
+
+            {isLoading &&
+              Array.from({ length: 12 }).map((_, index) => {
+                return <Loading key={index} />;
               })}
           </div>
         </div>
