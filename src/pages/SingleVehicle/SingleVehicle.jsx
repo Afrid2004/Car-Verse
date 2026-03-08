@@ -51,11 +51,11 @@ const SingleVehicle = () => {
     <div className="container pt-26 pb-16">
       <Title title={`${brand} ${model}`}></Title>
       <div className="div flex items-center justify-center w-full">
-        <div className="grid grid-cols-2 gap-7 bg-gray-100 p-4 rounded-3xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 bg-gray-100 p-4 rounded-3xl">
           <div>
             <img
               src={image}
-              className="aspect-4/3 rounded-2xl object-cover"
+              className="aspect-4/3 rounded-2xl"
               alt={`${brand} ${model}`}
             />
           </div>
@@ -84,7 +84,7 @@ const SingleVehicle = () => {
                   );
                 })}
               </div>
-              <div className="features w-full max-w-[400px] grid grid-cols-3 gap-4 mb-7">
+              <div className="features w-full lg:max-w-[400px] grid grid-cols-3 gap-4 mb-7">
                 <div className="bg-gray-200 p-3 rounded-[5px] flex flex-col items-center gap-2 justify-center">
                   <img
                     src="/images/milage.png"
