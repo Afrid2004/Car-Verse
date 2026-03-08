@@ -1,12 +1,15 @@
-import { useState } from "react";
 import "./App.css";
-import { BrowserRouter, RouterProvider } from "react-router";
+import { RouterProvider } from "react-router";
 import { router } from "./routes";
+import { Provider } from "react-redux";
+import { Store } from "./Store/Store";
 
 function App() {
   return (
     <>
-      <RouterProvider router={router}></RouterProvider>
+      <Provider store={Store}>
+        <RouterProvider router={router}></RouterProvider>
+      </Provider>
     </>
   );
 }

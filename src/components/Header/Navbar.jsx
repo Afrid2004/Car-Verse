@@ -40,12 +40,12 @@ const Navbar = () => {
     <nav
       className={`fixed top-0  w-full text-black transition-all duration-300 backdrop-blur-[50px] bg-white/70 z-100`}
     >
-      <div className="container py-4">
-        <div className="flex justify-between items-center relative">
+      <div className="container h-16 flex items-center justify-center">
+        <div className="flex justify-between items-center relative w-full">
           <div className="left-logo">
             <Link to="/">
               <img
-                src="images/logo-black.png"
+                src="/images/logo-black.png"
                 className="max-w-37.5"
                 alt="logo"
               />
