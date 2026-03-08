@@ -27,7 +27,7 @@ const Footer = () => {
                 <Link to="/" className="mb-3 block">
                   <img
                     className="max-w-[150px]"
-                    src="images/logo-white.png"
+                    src="/images/logo-white.png"
                     alt="logo-white"
                   />
                 </Link>
@@ -94,7 +94,7 @@ const Footer = () => {
                     <a className="playstore mb-3 block" href="#">
                       <div className="bg-[#161c30] flex gap-5 items-center justify-center py-4 px-8 rounded-2xl">
                         <img
-                          src="images/playstore.png"
+                          src="/images/playstore.png"
                           className="w-5"
                           alt="playstore"
                         />
@@ -109,7 +109,7 @@ const Footer = () => {
                     <a className="appstore" href="#">
                       <div className="bg-[#161c30] flex gap-5 items-center justify-center py-4 px-8 rounded-2xl">
                         <img
-                          src="images/appstore.png"
+                          src="/images/appstore.png"
                           className="w-5"
                           alt="appstore"
                         />
@@ -126,16 +126,16 @@ const Footer = () => {
                     </h4>
                     <div className="social flex gap-5">
                       <a href="#">
-                        <img src="images/facebook.png" alt="facebook" />
+                        <img src="/images/facebook.png" alt="facebook" />
                       </a>
                       <a href="#">
-                        <img src="images/twitter.png" alt="twitter" />
+                        <img src="/images/twitter.png" alt="twitter" />
                       </a>
                       <a href="#">
-                        <img src="images/instagram.png" alt="instagram" />
+                        <img src="/images/instagram.png" alt="instagram" />
                       </a>
                       <a href="#">
-                        <img src="images/linkedin.png" alt="linkedin" />
+                        <img src="/images/linkedin.png" alt="linkedin" />
                       </a>
                     </div>
                   </div>
