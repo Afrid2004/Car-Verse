@@ -1,16 +1,18 @@
 import { ShoppingCart } from "lucide-react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import createSlug from "../../utils/slug";
-import { fetchData } from "../Vehicles/VehiclesSlice";
+import { addCart, fetchData } from "../Vehicles/VehiclesSlice";
 import Loading from "../../components/Loading/Loading";
 import Title from "../../components/Helmet/Title";
 
 const SingleVehicle = () => {
   const { title } = useParams();
   const Dispatch = useDispatch();
-  const { vehicles, isLoading } = useSelector((state) => state.VehiclesReducer);
+  const { cartList, vehicles, isLoading } = useSelector(
+    (state) => state.VehiclesReducer,
+  );
 
   useEffect(() => {
     if (!vehicles.length) {
@@ -45,7 +47,17 @@ const SingleVehicle = () => {
     mileageKmpl,
     variant,
     rangeKm,
+    carId,
   } = vehicle;
+
+  const handleAddToCart = (id) => {
+    const exist = cartList.includes(id);
+    if (exist) {
+      alert("Cart Alredy Exist");
+    } else {
+      Dispatch(addCart(id));
+    }
+  };
 
   return (
     <div className="container pt-26 pb-16">
@@ -171,11 +183,14 @@ const SingleVehicle = () => {
                 ${priceUSD.toLocaleString()}
               </h2>
               <div>
-                <a href="#">
-                  <button className="btn-primary px-4 py-2 rounded-4xl flex gap-2 items-center">
+                <Link to="/cart">
+                  <button
+                    onClick={() => handleAddToCart(carId)}
+                    className="btn-primary px-4 py-2 rounded-4xl flex gap-2 items-center"
+                  >
                     <ShoppingCart className="w-5" /> Add to Cart
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

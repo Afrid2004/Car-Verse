@@ -3,6 +3,7 @@ import Root from "../pages/Root";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import SingleVehicle from "../pages/SingleVehicle/SingleVehicle";
+import Cart from "../pages/Cart/Cart";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
       {
         path: "/vehicle/:title",
         Component: SingleVehicle,
+      },
+      {
+        path: "/cart",
+        Component: Cart,
       },
     ],
   },

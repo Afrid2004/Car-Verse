@@ -9,7 +9,6 @@ import createSlug from "../../utils/slug";
 const VehiclesView = () => {
   const Dispatch = useDispatch();
   const { vehicles, isLoading } = useSelector((state) => state.VehiclesReducer);
-  console.log(vehicles);
 
   useEffect(() => {
     Dispatch(fetchData());

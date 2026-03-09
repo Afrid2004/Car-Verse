@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { addCartStore, getCartStore } from "../../utils/cartStoreDB";
 
 export const fetchData = createAsyncThunk("vehicles/fetchData", async () => {
   const response = await axios.get("/data.json");
@@ -10,7 +11,18 @@ const VehiclesSlice = createSlice({
   name: "vehicles",
   initialState: {
     vehicles: [],
+    cartList: getCartStore(),
     isLoading: false,
+  },
+  reducers: {
+    addCart: (state, action) => {
+      const carid = action.payload;
+      const isExistCart = state.cartList.includes(carid);
+      if (!isExistCart) {
+        state.cartList.push(carid);
+        addCartStore(carid);
+      }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchData.pending, (state) => {
@@ -28,4 +40,5 @@ const VehiclesSlice = createSlice({
   },
 });
 
+export const { addCart } = VehiclesSlice.actions;
 export default VehiclesSlice.reducer;
