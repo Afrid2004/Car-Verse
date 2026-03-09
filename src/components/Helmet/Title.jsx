@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 const Title = ({ title }) => {
   return (
     <Helmet>
-      <title>{title}</title>
+      <title>{title} - Car Verse</title>
       <link rel="icon" type="image/svg+xml" href="/images/favicon.png" />
     </Helmet>
   );

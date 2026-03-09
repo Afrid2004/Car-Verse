@@ -178,7 +178,7 @@ const SingleVehicle = () => {
                 <span>({rating}+)</span>
               </div>
             </div>
-            <div className="vehicle-bottom flex items-center justify-between">
+            <div className="vehicle-bottom flex items-center gap-5">
               <h2 className="text-[35px] font-bold">
                 ${priceUSD.toLocaleString()}
               </h2>

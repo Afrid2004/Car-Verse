@@ -16,9 +16,9 @@ const VehiclesView = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className="container pb-0 md:pb-16">
         <div>
-          <h4 className="text-[35px] font-bold mb-5">Explore All Vehicles</h4>
+          <h4 className="text-[35px] mb-5">Explore All Vehicles</h4>
           <div className="vehicles-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {isLoading
               ? Array.from({ length: 12 }).map((_, index) => {

@@ -8,9 +8,7 @@ const Brands = () => {
         <div className="brands-content w-full">
           <div className="brand-topper flex flex-col md:flex-row items-start md:items-center justify-between mb-10">
             <div className="mb-3 md:mb-0">
-              <h4 className="text-[35px] font-bold">
-                Explore Our Premium Brands
-              </h4>
+              <h4 className="text-[35px]">Explore Our Premium Brands</h4>
             </div>
             <div>
               <a href="#">

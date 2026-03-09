@@ -1,4 +1,4 @@
-import { LogIn, Menu, User, X } from "lucide-react";
+import { LogIn, Menu, ShoppingCart, User, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 
@@ -10,14 +10,20 @@ const Navbar = () => {
       <NavLink to="/" className="text-[17px] hover:text-[#405FF2]">
         Home
       </NavLink>
-      <NavLink to="/fdsfd" className="text-[17px] hover:text-[#405FF2]">
-        Cars
+      <NavLink to="/vehicles" className="text-[17px] hover:text-[#405FF2]">
+        Vehicles
       </NavLink>
       <NavLink to="/fsdfdfdf" className="text-[17px] hover:text-[#405FF2]">
         About Us
       </NavLink>
       <NavLink to="/fdsfdsfdsf" className="text-[17px] hover:text-[#405FF2]">
         Blogs
+      </NavLink>
+      <NavLink
+        to="/cart"
+        className="text-[17px] hover:text-[#405FF2] flex items-center gap-2"
+      >
+        <ShoppingCart className="w-5 h-5" /> Cart
       </NavLink>
     </>
   );
