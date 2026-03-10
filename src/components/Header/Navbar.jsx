@@ -1,9 +1,11 @@
 import { LogIn, Menu, ShoppingCart, User, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
+  const { cartList } = useSelector((state) => state.VehiclesReducer);
   //const [isScrooling, setScrooling] = useState(false);
   const menuLinks = (
     <>
@@ -23,7 +25,14 @@ const Navbar = () => {
         to="/cart"
         className="text-[17px] hover:text-[#405FF2] flex items-center gap-2"
       >
-        <ShoppingCart className="w-5 h-5" /> Cart
+        <ShoppingCart className="w-5 h-5" /> Cart{" "}
+        {cartList.length > 0 ? (
+          <span className="bg-primary w-4 h-4 flex items-center justify-center rounded-full text-white text-[14px]">
+            {cartList.length}
+          </span>
+        ) : (
+          ""
+        )}
       </NavLink>
     </>
   );

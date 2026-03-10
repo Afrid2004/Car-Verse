@@ -1,16 +1,18 @@
 import { ShoppingCart } from "lucide-react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
 import createSlug from "../../utils/slug";
 import { addCart, fetchData } from "../Vehicles/VehiclesSlice";
 import Loading from "../../components/Loading/Loading";
 import Title from "../../components/Helmet/Title";
 import { toast } from "react-toastify";
+import Spin from "../../components/Loading/Spin";
 
 const SingleVehicle = () => {
   const { title } = useParams();
   const Dispatch = useDispatch();
+  const [cartLoading, setCartLoading] = useState(false);
   const { cartList, vehicles, isLoading } = useSelector(
     (state) => state.VehiclesReducer,
   );
@@ -52,13 +54,19 @@ const SingleVehicle = () => {
   } = vehicle;
 
   const handleAddToCart = (id) => {
+    setCartLoading(true);
+
     const exist = cartList.includes(id);
     if (exist) {
       toast.error("Cart Alredy Exist");
     } else {
       Dispatch(addCart(id));
+
       toast.success("Added to Cart");
     }
+    setTimeout(() => {
+      setCartLoading(false);
+    }, 1000);
   };
 
   return (
@@ -187,9 +195,18 @@ const SingleVehicle = () => {
               <div>
                 <button
                   onClick={() => handleAddToCart(carId)}
+                  disabled={cartLoading}
                   className="btn-primary px-4 py-2 rounded-4xl flex gap-2 items-center"
                 >
-                  <ShoppingCart className="w-5" /> Add to Cart
+                  {cartLoading ? (
+                    <>
+                      Adding <Spin />
+                    </>
+                  ) : (
+                    <>
+                      <ShoppingCart className="w-5" /> Add to Cart
+                    </>
+                  )}
                 </button>
               </div>
             </div>

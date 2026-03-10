@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <HeroBanner></HeroBanner>
-      <div className="max-w-[95%] mx-auto shadow-2xl">
+      <div className="max-w-[95%] mx-auto shadow-2xl pb-0 md:pb-16">
         <Brands></Brands>
         <Vehicles></Vehicles>
       </div>
