@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import createSlug from "../../utils/slug";
 import { ExternalLink, ShoppingCart, Trash } from "lucide-react";
 import Title from "../../components/Helmet/Title";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const { cartList, vehicles } = useSelector((state) => state.VehiclesReducer);
@@ -22,6 +23,7 @@ const Cart = () => {
     const isExist = cartList.includes(id);
     if (isExist) {
       Dispatch(removeCart(id));
+      toast.success("Deleted Cart");
     }
   };
 

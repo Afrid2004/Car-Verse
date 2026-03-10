@@ -6,6 +6,7 @@ import createSlug from "../../utils/slug";
 import { addCart, fetchData } from "../Vehicles/VehiclesSlice";
 import Loading from "../../components/Loading/Loading";
 import Title from "../../components/Helmet/Title";
+import { toast } from "react-toastify";
 
 const SingleVehicle = () => {
   const { title } = useParams();
@@ -53,9 +54,10 @@ const SingleVehicle = () => {
   const handleAddToCart = (id) => {
     const exist = cartList.includes(id);
     if (exist) {
-      alert("Cart Alredy Exist");
+      toast.error("Cart Alredy Exist");
     } else {
       Dispatch(addCart(id));
+      toast.success("Added to Cart");
     }
   };
 
@@ -183,14 +185,12 @@ const SingleVehicle = () => {
                 ${priceUSD.toLocaleString()}
               </h2>
               <div>
-                <Link to="/cart">
-                  <button
-                    onClick={() => handleAddToCart(carId)}
-                    className="btn-primary px-4 py-2 rounded-4xl flex gap-2 items-center"
-                  >
-                    <ShoppingCart className="w-5" /> Add to Cart
-                  </button>
-                </Link>
+                <button
+                  onClick={() => handleAddToCart(carId)}
+                  className="btn-primary px-4 py-2 rounded-4xl flex gap-2 items-center"
+                >
+                  <ShoppingCart className="w-5" /> Add to Cart
+                </button>
               </div>
             </div>
           </div>
