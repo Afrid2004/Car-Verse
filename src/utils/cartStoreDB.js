@@ -18,4 +18,14 @@ const addCartStore = (id) => {
   return getStore;
 };
 
-export { addCartStore, getCartStore };
+const removeCartstore = (id) => {
+  const getStore = getCartStore();
+  if (getStore.includes(id)) {
+    const filterded = getStore.filter((carId) => carId !== id);
+    const data = JSON.stringify(filterded);
+    localStorage.setItem("cart", data);
+  }
+  return getStore;
+};
+
+export { addCartStore, getCartStore, removeCartstore };

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../Vehicles/VehiclesSlice";
+import { fetchData, removeCart } from "../Vehicles/VehiclesSlice";
 import { Link } from "react-router";
 import createSlug from "../../utils/slug";
 import { ExternalLink, ShoppingCart, Trash } from "lucide-react";
@@ -17,6 +17,13 @@ const Cart = () => {
   }, [vehicles.length, Dispatch]);
 
   const filterData = vehicles.filter((data) => cartList.includes(data.carId));
+
+  const handleRemoveCart = (id) => {
+    const isExist = cartList.includes(id);
+    if (isExist) {
+      Dispatch(removeCart(id));
+    }
+  };
 
   return (
     <div className="container pt-24 pb-0 md:pb-16">
@@ -70,7 +77,10 @@ const Cart = () => {
                             <ExternalLink className="w-4" />
                           </button>
                         </Link>
-                        <button className="bg-black/90 text-white cursor-pointer hover:text-red-400 text-[14px] px-4 py-1 rounded-4xl flex gap-2 transition-all duration-75 items-center">
+                        <button
+                          onClick={() => handleRemoveCart(car.carId)}
+                          className="bg-black/90 text-white cursor-pointer hover:text-red-400 text-[14px] px-4 py-1 rounded-4xl flex gap-2 transition-all duration-75 items-center"
+                        >
                           <Trash className="w-4" />
                           Delete
                         </button>
