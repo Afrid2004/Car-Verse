@@ -10,7 +10,7 @@ const Root = () => {
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>
-      <ToastContainer position="bottom-right" autoClose={2000} />
+      <ToastContainer position="bottom-right" autoClose={1000} />
     </>
   );
 };

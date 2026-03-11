@@ -42,7 +42,7 @@ const HeroBanner = () => {
           );
         })}
       </Swiper>
-      <div className="overlay-div absolute w-full h-full left-0 top-0 z-1 flex  pointer-events-none bg-black/30">
+      <div className="overlay-div absolute w-full h-full left-0 top-0 z-1 flex  pointer-events-none bg-black/20">
         <div className="container h-full">
           <div className="flex items-center justify-center h-full">
             <div className="w-full max-w-[700px] flex flex-col items-center  pointer-events-auto">
