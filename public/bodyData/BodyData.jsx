@@ -1,3 +1,5 @@
+import { BadgeCheck, CarFront, Handshake, UserStar } from "lucide-react";
+
 export const footerMenu = [
   //first div company menu (1-6)
   {
@@ -85,5 +87,32 @@ export const heroBannerData = [
   },
   {
     img: "images/hero-bg-3.jpg",
+  },
+];
+
+export const counterData = [
+  {
+    start: 600,
+    end: 836,
+    label: "CARS FOR SALE",
+    icon: <CarFront className="w-9 h-9 text-gray-700" />,
+  },
+  {
+    start: 500,
+    end: 738,
+    label: "DEALER REVIEWS",
+    icon: <Handshake className="w-9 h-9 text-gray-700" />,
+  },
+  {
+    start: 700,
+    end: 900,
+    label: "VISITORS PER DAY",
+    icon: <UserStar className="w-9 h-9 text-gray-700" />,
+  },
+  {
+    start: 200,
+    end: 450,
+    label: "VERIFIED DEALERS",
+    icon: <BadgeCheck className="w-9 h-9 text-gray-700" />,
   },
 ];

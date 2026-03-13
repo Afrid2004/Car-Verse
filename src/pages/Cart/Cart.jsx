@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData, removeCart } from "../Vehicles/VehiclesSlice";
+import { addCart, fetchData, removeCart } from "../Vehicles/VehiclesSlice";
 import { Link } from "react-router";
 import createSlug from "../../utils/slug";
 import { ExternalLink, Trash } from "lucide-react";
@@ -12,6 +12,8 @@ const Cart = () => {
   const { cartList, vehicles, isLoading } = useSelector(
     (state) => state.VehiclesReducer,
   );
+  const [saveList, setSaveList] = useState([]);
+  const [sort, setSort] = useState("");
   const Dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,7 +22,10 @@ const Cart = () => {
     }
   }, [vehicles.length, Dispatch]);
 
-  const filterData = vehicles.filter((data) => cartList.includes(data.carId));
+  useEffect(() => {
+    const filterData = vehicles.filter((data) => cartList.includes(data.carId));
+    setSaveList(filterData);
+  }, [vehicles, cartList]);
 
   const handleRemoveCart = (id) => {
     const isExist = cartList.includes(id);
@@ -51,17 +56,42 @@ const Cart = () => {
     </div>
   );
 
+  const handleSort = (value) => {
+    setSort(value);
+    const sortedList = [...saveList];
+    if (value === "price") {
+      sortedList.sort((a, b) => a.priceUSD - b.priceUSD);
+    }
+    if (value === "horse-power") {
+      sortedList.sort((a, b) => a.horsePower - b.horsePower);
+    }
+    setSaveList(sortedList);
+  };
+
   return (
     <div className="container pt-24 pb-0 md:pb-16">
       <Title title="Cart"></Title>
-      <h4 className="mb-5 text">
+      <h4 className="mb-5 flex items-center justify-between">
         <span className="text-[35px] ">Cart Items</span>
+        <details className="dropdown">
+          <summary className="btn m-1 capitalize font-medium">
+            {sort ? `Sort by: ${sort.replace(/[\s-]+/g, " ")}` : `Sort by`}
+          </summary>
+          <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+            <li>
+              <a onClick={() => handleSort("price")}>Price</a>
+            </li>
+            <li>
+              <a onClick={() => handleSort("horse-power")}>Horse Power</a>
+            </li>
+          </ul>
+        </details>
       </h4>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {isLoading ? (
           <Loading />
-        ) : filterData.length > 0 ? (
-          filterData.map((car, index) => {
+        ) : saveList.length > 0 ? (
+          saveList.map((car, index) => {
             return (
               <div
                 key={index}
